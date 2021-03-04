@@ -10,7 +10,7 @@ source:
   sha256: f64c88c4604f4a839441c1282fbcc07fbbc2bcdac9a59f78148029fdda76e4c1
 
 build:
-  number: 1
+  number: 2
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - gimli=gimli.cli:gimli
