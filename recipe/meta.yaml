@@ -13,7 +13,7 @@ build:
   number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
-    - gimli=gimli.cli:gimli
+    - gimli=gimli._main:main
 
 requirements:
   build:
@@ -30,9 +30,8 @@ requirements:
     - udunits2
   run:
     - python
-    - click
+    - importlib-resources  # [py<312]
     - numpy
-    - setuptools
     - udunits2
 
 test:
@@ -41,8 +40,7 @@ test:
   commands:
     - gimli --version
     - gimli --help
-    - gimli
-    - gimli --from=m --to=km --data=1,2,3,4,5
+    - gimli --from=m --to=km
 
 about:
   home: https://github.com/mcflugen/gimli
