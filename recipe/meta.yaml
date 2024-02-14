@@ -46,7 +46,7 @@ about:
   home: https://github.com/mcflugen/gimli
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.md
   summary: 'Object-oriented Python interface for udunits2'
   description: |
     Object-oriented Python interface for udunits2
