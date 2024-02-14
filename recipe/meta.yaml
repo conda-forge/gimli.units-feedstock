@@ -17,19 +17,19 @@ build:
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python >=3.10                          # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
-    - python
+    - python >=3.10
     - pip
     - cython
     - numpy
     - udunits2
   run:
-    - python
+    - python >=3.10
     - importlib-resources  # [py<312]
     - numpy
     - udunits2
