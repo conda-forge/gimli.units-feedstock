@@ -1,5 +1,5 @@
 {% set name = "gimli.units" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,15 @@ package:
 
 source:
   url: https://github.com/mcflugen/gimli/archive/v{{ version }}.tar.gz
-  sha256: ef2f64f1ccb212e85fa248e5413be43878b9a0b9404bceb5d9ad641a91306b50
+  sha256: 09ff7f1c3c6c78d308a8f39869a596dbe10e099ee7a7484018f10608726c9a3f
 
 build:
-  number: 3
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
-    - gimli=gimli.cli:gimli
+    - gimli=gimli._main:main
+  skip: True  # [py<310]
+
 
 requirements:
   build:
@@ -30,9 +32,8 @@ requirements:
     - udunits2
   run:
     - python
-    - click
+    - importlib-resources  # [py<312]
     - numpy
-    - setuptools
     - udunits2
 
 test:
@@ -41,14 +42,13 @@ test:
   commands:
     - gimli --version
     - gimli --help
-    - gimli
-    - gimli --from=m --to=km --data=1,2,3,4,5
+    - gimli --from=m --to=km
 
 about:
   home: https://github.com/mcflugen/gimli
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: LICENSE.md
   summary: 'Object-oriented Python interface for udunits2'
   description: |
     Object-oriented Python interface for udunits2
