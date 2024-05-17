@@ -10,7 +10,7 @@ source:
   sha256: 27328a9bfafb5cb29ce7f88aba29abfe535c2a673a819ceee5ddfdc8323cb16c
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - gimli=gimli._main:main
@@ -24,6 +24,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
