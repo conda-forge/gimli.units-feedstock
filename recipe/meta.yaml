@@ -1,5 +1,5 @@
 {% set name = "gimli.units" %}
-{% set version = "0.3.2" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mcflugen/gimli/archive/v{{ version }}.tar.gz
-  sha256: 27328a9bfafb5cb29ce7f88aba29abfe535c2a673a819ceee5ddfdc8323cb16c
+  sha256: 95cd52bc4df7f15c4035e8761b4d094afcaeb72598696fe8e961fcfb400c3ee1
 
 build:
   number: 0
@@ -24,6 +24,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
