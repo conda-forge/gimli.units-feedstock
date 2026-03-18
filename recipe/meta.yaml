@@ -1,5 +1,5 @@
 {% set name = "gimli.units" %}
-{% set version = "0.3.3" %}
+{% set version = "0.3.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/mcflugen/gimli/archive/v{{ version }}.tar.gz
-  sha256: 95cd52bc4df7f15c4035e8761b4d094afcaeb72598696fe8e961fcfb400c3ee1
+  sha256: 5302017db9728d377f14830307f7e6e280629bfcf8fdde5c49d0275ebc925a97
 
 build:
-  number: 3
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - gimli=gimli._main:main
